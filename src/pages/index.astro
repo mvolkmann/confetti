@@ -1,16 +1,29 @@
 ---
-
+import confetti from "canvas-confetti";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <button id="my-btn">Press Me</button>
+
+    <script>
+      function handleClick() {
+        confetti({
+          particleCount: 100,
+          spread: 180,
+          origin: { y: 1 },
+        });
+      }
+
+      const myBtn = document.getElementById("my-btn");
+      if (myBtn) myBtn.addEventListener("click", handleClick);
+    </script>
+  </body>
 </html>
